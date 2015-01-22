@@ -9,7 +9,7 @@ var bio = {
 		"location" : "Prague, Czech Republic"
 	},
 	"welcomeMessage" : "Hey! Welcome to my resume!",
-	"skills" : ["JS", "Java"],
+	"skills" : ["JS", "Java", "C++", "Git and Github"],
 	"bioPic" : "images/me.jpg",
 //	"display" : 
 };
@@ -95,14 +95,15 @@ $("#header").append(formattedLocation);
 var formattedPic = HTMLbioPic.replace("%data%", bio.bioPic);
 $("#header").append(formattedPic);
 
-if (bio.skills.length > 0) {
+function displaySkills() {
+	if (bio.skills.length > 0) {
+		$("#header").append(HTMLskillsStart);
 
-	$("#header").append(HTMLskillsStart);
-
-	var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
-	$("#skills").append(formattedSkill);
-	formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
-	$("#skills").append(formattedSkill);
+		for (skill in bio.skills) {
+			var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
+			$("#skills").append(formattedSkill);
+		}
+	}
 }
 
 function displayWork() {
@@ -126,6 +127,7 @@ function displayWork() {
 	}
 }
 
+displaySkills();
 displayWork();
 
 /* $("#main").append(internationalizeButton);
