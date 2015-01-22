@@ -131,19 +131,16 @@ function displayWork() {
 }
 
 displaySkills();
-displayWork();
-
-/* $("#main").append(internationalizeButton);
+displayWork(); 
 
 // Returns internationalized version of a name - first name with capital, second name - fully capitalized.
-function inName(_names) {
-	var fullName = _names;
-	var separatedNames = fullName.trim().split(" ");
+function inName(name) {
+	name = name.trim().split(" "); 
+	console.log(name);
+	name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
+	name[1] = name[1].toUpperCase(); 
 
-	var firstName = separatedNames[0].slice(0,1).toUpperCase() + separatedNames[0].slice(1).toLowerCase();
-	var secondName = separatedNames[1].toUpperCase(); 
+	return (name[0] + " " + name[1]);
+} 
 
-	return firstName + " " + secondName;
-} */
-
-
+$("#main").append(internationalizeButton);
