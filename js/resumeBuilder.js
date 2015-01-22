@@ -4,7 +4,7 @@ var bio = {
 	"contacts" : {		
 		"mobile" : "+420-77-44-88-665",
 		"email" : "lily.timofeeva@gmail.com",
-		"github" : "github",
+		"github" : "lily-timofeeva",
 		"twitter" : "twitter",
 		"location" : "Prague, Czech Republic"
 	},
@@ -49,6 +49,14 @@ var education = {
 var work = {
 	"jobs" : [
 		{
+			"employer" : "Smaragd",
+			"title" : "Helper",
+			"location" : "Moscow, Russia",
+			"dates" : "2008 - 2010",
+			"description" : "Doing whatever was necessary at the moment."
+		}, 
+
+		{
 			"employer" : "Best Way Company",
 			"title" : "Director",
 			"location" : "Prague, Czech Republic",
@@ -68,6 +76,24 @@ var projects = {
 		"images/me.jpg"
 	]
 };
+
+var formattedName = HTMLheaderName.replace("%data%", bio.name);
+$("#header").append(formattedName);
+
+var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+$("#header").append(formattedRole);
+
+var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+$("#header").append(formattedMobile);
+var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+$("#header").append(formattedEmail);
+var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+$("#header").append(formattedGithub);
+var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+$("#header").append(formattedLocation);
+
+var formattedPic = HTMLbioPic.replace("%data%", bio.bioPic);
+$("#header").append(formattedPic);
 
 if (bio.skills.length > 0) {
 
@@ -102,5 +128,17 @@ function displayWork() {
 
 displayWork();
 
+/* $("#main").append(internationalizeButton);
+
+// Returns internationalized version of a name - first name with capital, second name - fully capitalized.
+function inName(_names) {
+	var fullName = _names;
+	var separatedNames = fullName.trim().split(" ");
+
+	var firstName = separatedNames[0].slice(0,1).toUpperCase() + separatedNames[0].slice(1).toLowerCase();
+	var secondName = separatedNames[1].toUpperCase(); 
+
+	return firstName + " " + secondName;
+} */
 
 
