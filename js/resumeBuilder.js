@@ -79,7 +79,9 @@ if (bio.skills.length > 0) {
 	$("#skills").append(formattedSkill);
 }
 
-for (job in work.jobs) {
+function displayWork() {
+
+	for (job in work.jobs) {
 	$("#workExperience").append(HTMLworkStart);
 
 	var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
@@ -92,11 +94,13 @@ for (job in work.jobs) {
 
 	var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
 	$(".work-entry:last").append(formattedLocation);
-	
+
 	var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
-	$(".work-entry:last").append(formattedDescription);
-		
-	
-	
-	
+	$(".work-entry:last").append(formattedDescription);	
+	}
 }
+
+displayWork();
+
+
+
