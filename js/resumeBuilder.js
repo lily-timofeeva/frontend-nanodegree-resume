@@ -10,7 +10,7 @@ var bio = {
 	},
 	"welcomeMessage" : "Hey! Welcome to my resume!",
 	"skills" : ["JS", "Java", "C++", "Git and Github"],
-	"bioPic" : "images/me.jpg",
+	"bioPic" : "images/fry.jpg",
 //	"display" : 
 };
 
@@ -91,6 +91,9 @@ var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
 $("#header").append(formattedGithub);
 var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
 $("#header").append(formattedLocation);
+
+var formattedMessage = HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
+$("#header").append(formattedMessage);
 
 var formattedPic = HTMLbioPic.replace("%data%", bio.bioPic);
 $("#header").append(formattedPic);
