@@ -68,12 +68,26 @@ var work = {
 };
 
 var projects = {
-	"title" : "Resume",
-	"dates" : "12.2014 - 02.2015",
-	"description" : "My resume.",
-	"images" : [
-		"images/fry.jpg",
-		"images/me.jpg"
+	"projects" : [
+		{
+			"title" : "Resume",
+			"dates" : "12.2014 - 02.2015",
+			"description" : "My resume.",
+			"images" : [
+				"images/p1-1.jpg",
+				"images/p1-2.jpg"
+			]
+		},
+
+		{
+			"title" : "Some Project",
+			"dates" : "2014 - 2015",
+			"description" : "Some awesome project.",
+			"images" : [
+				"images/p2-1.jpg",
+				"images/p2-2.jpg"
+			]
+		}
 	]
 };
 
@@ -144,3 +158,28 @@ function inName(name) {
 } 
 
 $("#main").append(internationalizeButton);
+
+projects.display = function() {
+
+	for (project in projects.projects) {
+		$("#projects").append(HTMLprojectStart);
+
+		var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+		$(".project-entry:last").append(formattedTitle);
+
+		var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+		$(".project-entry:last").append(formattedDates);
+
+		var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+		$(".project-entry:last").append(formattedDescription);
+
+		if (projects.projects[project].images.length > 0) {
+			for (image in projects.projects[project].images) {
+				var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
+				$(".project-entry:last").append(formattedImage);
+			}
+		}
+	}
+}
+
+projects.display();
