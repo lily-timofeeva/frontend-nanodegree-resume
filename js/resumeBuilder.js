@@ -10,7 +10,7 @@ var bio = {
 	},
 	"welcomeMessage" : "Hey! Welcome to my resume!",
 	"skills" : ["JS", "Java", "C++", "Git and Github"],
-	"bioPic" : "images/fry.jpg",
+	"bioPic" : "images/me.jpg",
 //	"display" : 
 };
 
@@ -91,28 +91,29 @@ var projects = {
 	]
 };
 
-var formattedName = HTMLheaderName.replace("%data%", bio.name);
-$("#header").append(formattedName);
+bio.display = function() {
 
-var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-$("#header").append(formattedRole);
+	var formattedName = HTMLheaderName.replace("%data%", bio.name);
+	$("#header").append(formattedName);
 
-var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-$("#header").append(formattedMobile);
-var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-$("#header").append(formattedEmail);
-var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
-$("#header").append(formattedGithub);
-var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-$("#header").append(formattedLocation);
+	var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+	$("#header").append(formattedRole);
 
-var formattedMessage = HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
-$("#header").append(formattedMessage);
+	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+	$("#header").append(formattedMobile);
+	var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+	$("#header").append(formattedEmail);
+	var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+	$("#header").append(formattedGithub);
+	var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+	$("#header").append(formattedLocation);
 
-var formattedPic = HTMLbioPic.replace("%data%", bio.bioPic);
-$("#header").append(formattedPic);
+	var formattedMessage = HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
+	$("#header").append(formattedMessage);
 
-function displaySkills() {
+	var formattedPic = HTMLbioPic.replace("%data%", bio.bioPic);
+	$("#header").append(formattedPic);
+	
 	if (bio.skills.length > 0) {
 		$("#header").append(HTMLskillsStart);
 
@@ -121,9 +122,10 @@ function displaySkills() {
 			$("#skills").append(formattedSkill);
 		}
 	}
-}
+	
+ }
 
-function displayWork() {
+work.display = function() {
 
 	for (job in work.jobs) {
 	$("#workExperience").append(HTMLworkStart);
@@ -143,21 +145,6 @@ function displayWork() {
 	$(".work-entry:last").append(formattedDescription);	
 	}
 }
-
-displaySkills();
-displayWork(); 
-
-// Returns internationalized version of a name - first name with capital, second name - fully capitalized.
-function inName(name) {
-	name = name.trim().split(" "); 
-	console.log(name);
-	name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
-	name[1] = name[1].toUpperCase(); 
-
-	return (name[0] + " " + name[1]);
-} 
-
-$("#main").append(internationalizeButton);
 
 projects.display = function() {
 
@@ -182,4 +169,21 @@ projects.display = function() {
 	}
 }
 
+bio.display();
+work.display();
 projects.display();
+
+// Returns internationalized version of a name - first name with capital, second name - fully capitalized.
+function inName(name) {
+	name = name.trim().split(" "); 
+	console.log(name);
+	name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
+	name[1] = name[1].toUpperCase(); 
+
+	return (name[0] + " " + name[1]);
+} 
+
+$("#main").append(internationalizeButton);
+
+//Map.
+$("#mapDiv").append(googleMap);
