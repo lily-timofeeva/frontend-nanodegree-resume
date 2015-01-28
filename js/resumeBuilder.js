@@ -37,7 +37,7 @@ var education = {
 	{
 		"title" : "Front End Web Developer Nanodegree",
 		"school" : "Udacity",
-		"date" : 2015,
+		"dates" : 2015,
 		"url" : "https://www.udacity.com/course/nd001"
 	}
 ],
@@ -146,8 +146,24 @@ education.display = function() {
 				var formattedSmajor = HTMLschoolName.replace("%data%", education.schools[school].majors[major]);
 				$(".education-entry:last").append(formattedSmajor);
 			}
-		}
-		
+		}		
+	}
+
+	$(".education-entry:last").append(HTMLonlineClasses);
+
+	for (onlineCourse  in  education.onlineCourses) {
+
+		var formattedCtitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[onlineCourse].title);
+		$(".education-entry:last").append(formattedCtitle);
+
+		var formattedCschool = HTMLonlineSchool.replace("%data%", education.onlineCourses[onlineCourse].school);
+		$(".education-entry:last").append(formattedCschool);
+
+		var formattedCdates = HTMLonlineDates.replace("%data%", education.onlineCourses[onlineCourse].dates);
+		$(".education-entry:last").append(formattedCdates);
+
+		var formattedCurl = HTMLonlineURL.replace("%data%", education.onlineCourses[onlineCourse].url);
+		$(".education-entry:last").append(formattedCurl);
 	}
 } 
 
