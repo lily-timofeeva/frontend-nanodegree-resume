@@ -89,13 +89,14 @@ var projects = {
 	]
 };
 
+// Displays Bio section.
 bio.display = function() {
 
 	var formattedName = HTMLheaderName.replace("%data%", bio.name);
-	$("#header").append(formattedName);
+	$("#header").prepend(formattedName);
 
 	var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-	$("#header").append(formattedRole);
+	$("#header").prepend(formattedRole);
 
 	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
 	$("#header").append(formattedMobile);
@@ -123,6 +124,7 @@ bio.display = function() {
 	
  }
 
+// Displays Education section.
 education.display = function() {
 
 	for (school in education.schools) {
@@ -167,6 +169,7 @@ education.display = function() {
 	}
 } 
 
+// Displays Work section.
 work.display = function() {
 
 	for (job in work.jobs) {
@@ -188,6 +191,7 @@ work.display = function() {
 	}
 }
 
+// Displays Projects section.
 projects.display = function() {
 
 	for (project in projects.projects) {
@@ -216,7 +220,7 @@ education.display();
 work.display();
 projects.display();
 
-// Returns internationalized version of a name - first name with capital, second name - fully capitalized.
+// Internationalizes a name - first name with capital, second name - fully capitalized.
 function inName(name) {
 	name = name.trim().split(" "); 
 	console.log(name);
