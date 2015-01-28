@@ -2,15 +2,15 @@ var bio = {
 	"name" : "Liliya Timofeeva",
 	"role" : "Web Developer",
 	"contacts" : {		
-		"mobile" : "+420-77-44-88-665",
-		"email" : "lily.timofeeva@gmail.com",
-		"github" : "lily-timofeeva",
-		"twitter" : "twitter",
+		"mobile" : "+420-00-00-00-000",
+		"email" : "myemail@example.com",
+		"github" : "mygithub",
+		"twitter" : "mytwitter",
 		"location" : "Prague, Czech Republic"
 	},
-	"welcomeMessage" : "Hey! Welcome to my resume!",
-	"skills" : ["JS", "Java", "C++", "Git and Github"],
-	"bioPic" : "images/me.jpg",
+	"welcomeMessage" : "Hey! Welcome!",
+	"skills" : ["Skill 1", "Skill 2", "Skill 3", "Skill 4"],
+	"bioPic" : "images/p2.jpg",
 //	"display" : 
 };
 
@@ -73,7 +73,7 @@ var projects = {
 			"description" : "My resume.",
 			"images" : [
 				"images/p1-1.jpg",
-				"images/p1-2.jpg"
+				"images/p1-1.jpg"
 			]
 		},
 
@@ -83,7 +83,7 @@ var projects = {
 			"description" : "Some awesome project.",
 			"images" : [
 				"images/p2-1.jpg",
-				"images/p2-2.jpg"
+				"images/p2-1.jpg"
 			]
 		}
 	]
@@ -104,6 +104,8 @@ bio.display = function() {
 	$("#header").append(formattedEmail);
 	var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
 	$("#header").append(formattedGithub);
+	var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+	$("#header").append(formattedTwitter);
 	var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
 	$("#header").append(formattedLocation);
 
