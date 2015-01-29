@@ -83,12 +83,11 @@ a {
 .welcome-message {
   font-style: italic;
   font-size: 18px;
-  color: #F3F3F3;
+  color: #70F986;
   line-height: 28px;
 }
 
 #skillsH3 {
-  color: #F5AE23;
   display: none;
 }
 
@@ -96,13 +95,13 @@ a {
   background-color: #F5AE23;
 }
 
-.orange-text {
-  color: #F5AE23;
+.col1-text {
+  color: #36A1FA;
 }
 
-.white-text {
+.col2-text {
   font-weight: bold;
-  color: #FFFFFF;
+  color: #D9FEF3;
 }
 
 .gray {
