@@ -11,7 +11,40 @@ var bio = {
 	"welcomeMessage" : "Hey! Welcome!",
 	"skills" : ["Skill 1", "Skill 2", "Skill 3", "Skill 4"],
 	"bioPic" : "images/p2.jpg",
-//	"display" : 
+	"display" : function() {
+
+		var formattedName = HTMLheaderName.replace("%data%", bio.name);
+		$("#header").prepend(formattedName);
+
+		var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+		$("#header").prepend(formattedRole);
+
+		var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+		$("#topContacts").append(formattedMobile);
+		var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+		$("#topContacts").append(formattedEmail);
+		var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+		$("#topContacts").append(formattedGithub);
+		var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+		$("#topContacts").append(formattedTwitter);
+		var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+		$("#topContacts").append(formattedLocation);
+
+		var formattedMessage = HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
+		$("#header").append(formattedMessage);
+
+		var formattedPic = HTMLbioPic.replace("%data%", bio.bioPic);
+		$("#header").append(formattedPic);
+		
+		if (bio.skills.length > 0) {
+			$("#header").append(HTMLskillsStart);
+
+			for (skill in bio.skills) {
+				var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
+				$("#skills").append(formattedSkill);
+			}
+		}	
+ 	}
 };
 
 var education = {
@@ -21,7 +54,8 @@ var education = {
 		"location" : "Moscow, Russia",
 		"degree" : "Master",
 		"majors" : ["Computer Programming"],
-		"dates" : 2010
+		"dates" : 2010,
+		"url" : "http://www.stankin.ru/"
 	},
 
 	{
@@ -29,7 +63,8 @@ var education = {
 		"location" : "Prague, Czech Republic",
 		"degree" : "Master",
 		"majors" : ["Economics and Finance"],
-		"dates" : 2016
+		"dates" : 2016,
+		"url" : "http://www.cuni.cz/"
 	}
 ],
 
@@ -88,43 +123,6 @@ var projects = {
 		}
 	]
 };
-
-// Displays Bio section.
-bio.display = function() {
-
-	var formattedName = HTMLheaderName.replace("%data%", bio.name);
-	$("#header").prepend(formattedName);
-
-	var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-	$("#header").prepend(formattedRole);
-
-	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-	$("#topContacts").append(formattedMobile);
-	var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-	$("#topContacts").append(formattedEmail);
-	var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
-	$("#topContacts").append(formattedGithub);
-	var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
-	$("#topContacts").append(formattedTwitter);
-	var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-	$("#topContacts").append(formattedLocation);
-
-	var formattedMessage = HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
-	$("#header").append(formattedMessage);
-
-	var formattedPic = HTMLbioPic.replace("%data%", bio.bioPic);
-	$("#header").append(formattedPic);
-	
-	if (bio.skills.length > 0) {
-		$("#header").append(HTMLskillsStart);
-
-		for (skill in bio.skills) {
-			var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
-			$("#skills").append(formattedSkill);
-		}
-	}
-	
- }
 
 // Displays Education section.
 education.display = function() {
