@@ -136,6 +136,10 @@ a {
   padding-bottom: 2.5%
 }
 
+.move-right {
+  padding: 0 80px 0 80px;
+}
+
 ul {
   list-style-type: none;
 }
