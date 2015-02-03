@@ -128,18 +128,45 @@ var work = {
 			"title" : "Helper",
 			"location" : "Moscow, Russia",
 			"dates" : "2008 - 2010",
-			"description" : "Doing whatever was necessary at the moment."
+			"description" : "Sed ut perspiciatis unde omnis iste natus error sit voluptatem " + 
+				"accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo " +
+				"inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. " +
+				"Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, " + 
+				"sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt." 			
 		}, 
-
 		{
 			"employer" : "Best Way Company",
 			"title" : "Director",
 			"location" : "Prague, Czech Republic",
 			"dates" : "2010-2015",
-			"description" : "I am a derictor of my own company."
+			"description" : "Sed ut perspiciatis unde omnis iste natus error sit voluptatem " + 
+				"accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo " +
+				"inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. " +
+				"Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, " + 
+				"sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt." 
 		}
 	],
-//	"display" :
+
+	"display" : function() {
+
+		for (job in work.jobs) {
+			$("#workExperience").append(HTMLworkStart);
+
+			var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+			var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+			var formattedEmployerTitle = formattedEmployer + formattedTitle;
+			$(".work-entry:last").append(formattedEmployerTitle);
+
+			var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+			$(".work-entry:last").append(formattedDates);
+
+			var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+			$(".work-entry:last").append(formattedLocation);
+
+			var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+			$(".work-entry:last").append(formattedDescription);	
+		}
+	}
 };
 
 var projects = {
@@ -165,28 +192,6 @@ var projects = {
 		}
 	]
 };
-
-// Displays Work section.
-work.display = function() {
-
-	for (job in work.jobs) {
-		$("#workExperience").append(HTMLworkStart);
-
-		var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-		var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-		var formattedEmployerTitle = formattedEmployer + formattedTitle;
-		$(".work-entry:last").append(formattedEmployerTitle);
-
-		var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-		$(".work-entry:last").append(formattedDates);
-
-		var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
-		$(".work-entry:last").append(formattedLocation);
-
-		var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
-		$(".work-entry:last").append(formattedDescription);	
-	}
-}
 
 // Displays Projects section.
 projects.display = function() {
