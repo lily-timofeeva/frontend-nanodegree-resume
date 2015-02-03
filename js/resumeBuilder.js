@@ -93,8 +93,9 @@ var education = {
 
 			if (education.schools.length > 0) {
 
+
 				for (major in education.schools[school].majors) {
-					var formattedSmajor = HTMLschoolName.replace("%data%", education.schools[school].majors[major]);
+					var formattedSmajor = HTMLschoolMajor.replace("%data%", education.schools[school].majors[major]);
 					$(".education-entry:last").append(formattedSmajor);
 				}
 			}	
