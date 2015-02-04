@@ -110,6 +110,12 @@ a {
   clear:both;
 }
 
+.back-col1 {
+  background-color: #DCFAEC;
+  padding-bottom: 10px;
+  clear:both;
+}
+
 .dark-gray {
   background-color: #4A4A4A;
 }

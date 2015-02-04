@@ -29,7 +29,7 @@ var HTMLWelcomeMsg = '<span class="welcome-message">%data%</span>';
 var HTMLskillsStart = '<h3 id="skillsH3" class="col1-text">Skills at a Glance:</h3><ul id="skills" class="move-right"></ul>';
 var HTMLskills = '<li class="flex-item"><span class="col2-text">%data%</span></li>';
 
-var HTMLworkStart = '<div class="work-entry"></div>';
+var HTMLworkStart = "<div class='work-entry'></div>";
 var HTMLworkEmployer = '<a href="#">%data%';
 var HTMLworkTitle = ' - %data%</a>';
 var HTMLworkDates = '<div class="date-text">%data%</div>';
@@ -172,6 +172,7 @@ function initializeMap() {
 
     // hmmmm, I wonder what this is about...
     google.maps.event.addListener(marker, 'click', function() {
+
       // your code goes here!
     });
 
